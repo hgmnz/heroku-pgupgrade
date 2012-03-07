@@ -13,7 +13,7 @@ In short: `heroku pg:upgrade HEROKU_POSTGRESQL_BLUE --app your_app`
 This command will only work on a follower, so that your main database is kept
 untouched, and so that it contains the most recent data possible. During the
 course of the upgrade, it will unfollow its parent and run the upgrade
-procedure. During the upgrade, you can use `heroku pg:wait` to be track progress.
+procedure. During the upgrade, you can use `heroku pg:wait` to track progress.
 
 After the upgrade is done, check the data in the new database and make sure that
 everything still works. Then use `heroku pg:promote` to promote the upgraded
