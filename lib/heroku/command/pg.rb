@@ -16,14 +16,16 @@ module Heroku::Command
         output_with_bang "#{follower_db[:name]} does not support upgrading"
         return
       else
-        follower_name = follower_db[:pretty_name]
+        follower_name  = follower_db[:pretty_name]
         upgrade_status = heroku_postgresql_client(follower_db[:url]).upgrade_status
 
         if upgrade_status[:error]
           output_with_bang "There were problems upgrading #{follower_name}"
           output_with_bang upgrade_status[:error]
         else
-          origin_name = name_from_url(origin_db_url)
+          follower_db_info = heroku_postgresql_client(follower_db[:url]).get_database
+          origin_db_url    = follower_db_info[:following]
+          origin_name      = name_from_url(origin_db_url)
 
           output_with_bang "#{follower_name} will be upgraded to a newer PostgreSQL version,"
           output_with_bang "stop following #{origin_name}, and become writable."
