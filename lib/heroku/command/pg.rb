@@ -29,7 +29,8 @@ module Heroku::Command
 
           output_with_bang "#{follower_name} will be upgraded to a newer PostgreSQL version,"
           output_with_bang "stop following #{origin_name}, and become writable."
-          output_with_bang "This cannot be undone."
+          output_with_bang "Use `heroku pg:wait` to track status"
+          output_with_bang "\nThis cannot be undone."
           return unless confirm_command
 
           working_display "upgrading" do
