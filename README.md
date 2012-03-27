@@ -41,7 +41,7 @@ We recommend you leave the original master for a few days, or until you're comfo
 that the new database is working as expected. To remove the old database, simply remove
 the addon:
 
-    heroku addons:remove OLD_DATABASE_URL --app <your-app>
+    heroku addons:remove HEROKU_POSTGRESQL_<old-color> --app <your-app>
 
 ## THIS IS BETA SOFTWARE
 
