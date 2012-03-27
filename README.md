@@ -37,7 +37,7 @@ A typical upgrade procedure looks like so:
     # Remove maintenance mode
     heroku maintenance:off --app <your-app>
 
-We recommend you leave the original master for a few days, or until your comfortable
+We recommend you leave the original master for a few days, or until you're comfortable
 that the new database is working as expected. To remove the old database, simply remove
 the addon:
 
