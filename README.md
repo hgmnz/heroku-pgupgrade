@@ -33,7 +33,7 @@ A typical upgrade procedure looks like so:
     # Wait until it completes upgrading
     heroku pg:wait --app <your-app>
     # Promote it, so your app now talks to this new database
-    heroku pg:promote FOLLOWER_URL --app <your-app>
+    heroku pg:promote UPGRADED_DATABASE_URL --app <your-app>
     # Remove maintenance mode
     heroku maintenance:off --app <your-app>
 
