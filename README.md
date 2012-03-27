@@ -25,7 +25,7 @@ A typical upgrade procedure looks like so:
     # Create a follower
     heroku addons:add heroku-postgresql:<your-plan> --follow=MASTER_DATABASE_URL --app <your-app>
     # Wait until it's cought up with the master
-    heroku pg:wait
+    heroku pg:wait --app <your-app>
     # Put your app in maintenance mode
     heroku maintenance:on --app <your-app>
     # Upgrade the follower
