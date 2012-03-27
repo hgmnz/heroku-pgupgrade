@@ -1,6 +1,6 @@
 # heroku pg:upgrade
 
-Upgrades your Dedicated Postgres database to the latest version, current 9.1.
+Upgrades your Dedicated Postgres database to the latest version, currently 9.1.3
 
 ## Installation
 
@@ -15,10 +15,10 @@ untouched, and so that it contains the most recent data possible. During the
 course of the upgrade, it will unfollow its parent and run the upgrade
 procedure. During the upgrade, you can use `heroku pg:wait` to track progress.
 
-After the upgrade is done, check the data in the new database and make sure that
-everything still works. Then use `heroku pg:promote` to promote the upgraded
-database for your application. Leave the old one around until you're comfortable
-with the new database.
+After the upgrade is done, check the data in the new database and make sure
+that everything still works. Then use `heroku pg:promote` to promote the
+upgraded database for your application. Leave the old one around until you're
+comfortable with the new database.
 
 A typical upgrade procedure looks like so:
 
@@ -37,12 +37,13 @@ A typical upgrade procedure looks like so:
     # Remove maintenance mode
     heroku maintenance:off --app <your-app>
 
-We recommend you leave the original master for a few days, or until you're comfortable
-that the new database is working as expected. To remove the old database, simply remove
-the addon:
+We recommend you leave the original master for a few days, or until you're
+comfortable that the new database is working as expected. To remove the old
+database, simply remove the addon:
 
     heroku addons:remove HEROKU_POSTGRESQL_<old-color> --app <your-app>
 
 ## THIS IS BETA SOFTWARE
 
-Thanks for trying it out. If you find any issues, please notify us at support@heroku.com
+Thanks for trying it out. If you find any issues, please notify us at
+support@heroku.com
