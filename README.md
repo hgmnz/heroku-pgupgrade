@@ -4,6 +4,9 @@ Upgrades your Dedicated Postgres database to the latest version, currently 9.1.3
 
 ## Installation
 
+    # upgrade to the latest heroku gem
+    gem update heroku
+    # install this plugin
     heroku plugins:install git://github.com/hgimenez/heroku-pgupgrade.git
 
 ## Usage
@@ -25,15 +28,15 @@ A typical upgrade procedure looks like so:
     # Create a follower
     heroku addons:add heroku-postgresql:<your-plan> --follow=MASTER_DATABASE_URL --app <your-app>
     # Wait until it's cought up with the master
-    heroku pg:wait --app <your-app>
+    heroku pg:wait <new-database-color> --app <your-app>
     # Put your app in maintenance mode
     heroku maintenance:on --app <your-app>
     # Upgrade the follower
-    heroku pg:upgrade FOLLOWER_URL --app <your-app>
+    heroku pg:upgrade HEROKU_POSTGRESQL_<new-database-color> --app <your-app>
     # Wait until it completes upgrading
     heroku pg:wait --app <your-app>
     # Promote it, so your app now talks to this new database
-    heroku pg:promote UPGRADED_DATABASE_URL --app <your-app>
+    heroku pg:promote HEROKU_POSTGRESQL_<new-database-color> --app <your-app>
     # Remove maintenance mode
     heroku maintenance:off --app <your-app>
 
@@ -41,7 +44,7 @@ We recommend you leave the original master for a few days, or until you're
 comfortable that the new database is working as expected. To remove the old
 database, simply remove the addon:
 
-    heroku addons:remove HEROKU_POSTGRESQL_<old-color> --app <your-app>
+    heroku addons:remove HEROKU_POSTGRESQL_<old-database-color> --app <your-app>
 
 ## THIS IS BETA SOFTWARE
 
