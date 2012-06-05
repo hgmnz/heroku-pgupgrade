@@ -31,7 +31,7 @@ module Heroku::Command
           output_with_bang "\nThis cannot be undone."
           return unless confirm_command
 
-          action "upgrading" do
+          action "Requesting upgrade" do
             hpg_client(follower_url).upgrade
           end
         end
