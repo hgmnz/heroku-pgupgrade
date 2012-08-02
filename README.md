@@ -7,7 +7,7 @@ Upgrades your Dedicated Postgres database to the latest version, currently 9.1.3
     # upgrade to the latest heroku gem
     gem update heroku
     # install this plugin
-    heroku plugins:install git://github.com/hgimenez/heroku-pgupgrade.git
+    heroku plugins:install git://github.com/hgmnz/heroku-pgupgrade.git
 
 ## Usage
 
