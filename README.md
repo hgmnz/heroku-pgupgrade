@@ -1,6 +1,6 @@
 # heroku pg:upgrade
 
-Upgrades your Dedicated Postgres database to the latest version, currently 9.1.3
+Upgrades your Production Tier Postgres database to the latest version, currently 9.1.3
 
 ## Installation
 
