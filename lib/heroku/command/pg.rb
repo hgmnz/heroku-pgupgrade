@@ -10,8 +10,7 @@ module Heroku::Command
       follower = hpg_resolve(name)
       client = hpg_client(follower)
 
-      case follower.plan
-      when "shared" # or "dev"
+      if ['dev', 'basic'].include?follower.plan
         output_with_bang "#{follower.resource_name} does not support upgrading"
         return
       else
